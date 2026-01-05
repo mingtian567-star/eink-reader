@@ -1,0 +1,33 @@
+[Unit]
+Description=E-Ink Reader Service
+After=multi-user.target
+Conflicts=getty@tty1.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/pi/eink-reader
+Environment="PYTHONUNBUFFERED=1"
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/pi/.Xauthority"
+ExecStart=/usr/bin/python3 /home/pi/eink-reader/main.py
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=eink-reader
+
+# 安全设置
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/home/pi/eink-reader
+ReadWritePaths=/home/pi/eink-reader/books
+ReadWritePaths=/home/pi/eink-reader/logs
+
+# 禁用超时
+TimeoutStopSec=0
+SendSIGKILL=no
+
+[Install]
+WantedBy=multi-user.target

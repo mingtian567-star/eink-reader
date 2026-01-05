@@ -1,0 +1,15 @@
+{
+    "screen_type": "7in5",
+    "font_size": 20,
+    "font_path": "fonts/wqy-microhei.ttc",
+    "line_spacing": 1.5,
+    "margin": 20,
+    "auto_sleep": 300,
+    "books_dir": "books",
+    "current_book": null,
+    "current_page": 0,
+    "theme": "light",
+    "enable_tts": false,
+    "enable_wifi_upload": true,
+    "wifi_upload_port": 8080
+}
